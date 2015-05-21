@@ -177,6 +177,8 @@
 		}
 		
 		//pase de parametros
+		$x = 3;
+		
 		function suma($x, $y){
 			$x = $x + $y;
 			return $x;	
@@ -190,8 +192,28 @@
 		echo $a."<br>";
 		
 		//pase de parámetros por referencia
-		echo suma(&$a, $b)." ";
+		echo suma($a, $b)." ";
 		echo $a."<br>";
+		
 	?> 
+    <h3> Usando static y global </h3>
+    
+    <?php
+		$count = 10;
+		function contador(){
+			global $count;
+			
+			$count++;
+			
+			return $count;	
+		}
+		
+		echo contador()." ";
+		echo contador()." ";
+		echo contador()." ";
+		echo contador()." ";
+		echo contador()." ";
+		echo contador()." ";
+	?>
 </body>
 </html>
