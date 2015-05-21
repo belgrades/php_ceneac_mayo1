@@ -60,12 +60,20 @@
     	<h3> Entre <?php echo $inicio; ?> y <?php echo $fin ?> 		</h3>
         
         <?php
+			// desde el numero inicio hasta el fin
 			for($i = $inicio; $i <= $fin; $i++){
+				// asumimos que el numero es primo
 				$es_primo = TRUE;
+				
+				//verificamos divisores desde 2 hasta numero-1
 				for($j = 2; $j < $i; $j++){
+					
+					//si el resto es 0 entonces NO es primo
 					if($i%$j==0)
 						$es_primo = FALSE;	
 				}	
+				
+				//imprimimos el primo (en caso de serlo)
 				if($es_primo){
 					echo $i." ";	
 				}
