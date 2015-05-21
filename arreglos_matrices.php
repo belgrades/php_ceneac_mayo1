@@ -15,7 +15,7 @@
 		
 		echo "Paso mis vacaciones en  ".$ciudad[1]." y ".$ciudad[2]."<br>";
 		
-		// usando array
+	
 		
 		$italia = array("Florencia", "Roma", "Pisa", "Modena" );
 		
