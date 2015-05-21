@@ -145,12 +145,53 @@
 		$calendario[] = array(5, "mayo", 31);
 		
 		while(list($clave, $valor) = each($calendario)){
+			echo ($clave+1)." ";
 			$cadena = $valor[1];
 			$cadena .= " es el número ".$valor[0];
 			$cadena .= " y tiene ".$valor[2]." días<br>";
-			echo $cadena; 	
+			echo $cadena;
+			
+			
 		}
 		
 	?>
+    
+    <h3> Usando funciones en PHP </h3>
+    
+    <?php 
+		//usando return
+		function mayor($x, $y){
+			if($x > $y)
+				return $x." es mayor que ".$y;
+			else
+				return $y." es mayor que ".$x;	
+		}
+		
+		echo mayor(19, 10);
+		
+		function mayor_f($x, $y){
+			if($x > $y)
+				return $x." es mayor que ".$y;
+				
+		    return $y." es mayor que ".$x;
+		}
+		
+		//pase de parametros
+		function suma($x, $y){
+			$x = $x + $y;
+			return $x;	
+		}
+		
+		$a = 3;
+		$b = 6;
+		
+		//pase de parámetros por valor
+		echo suma($a, $b)." ";
+		echo $a."<br>";
+		
+		//pase de parámetros por referencia
+		echo suma(&$a, $b)." ";
+		echo $a."<br>";
+	?> 
 </body>
 </html>
