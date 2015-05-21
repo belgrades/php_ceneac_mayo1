@@ -1,1 +1,4 @@
-# php_ceneac_mayo1
+# PHP Ceneac Curso Mayo - Junio 2015
+
+## Autor
+Fernando Crema
