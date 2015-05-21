@@ -22,6 +22,7 @@
 	
 	echo cos($pi*90/180). "<br>";
 	
+	//calculando el "verdadero" valor de pi
 	$pi_val = 2*acos(0);
 	
 	
@@ -44,10 +45,6 @@
 	$altura = 7;
 	
 	echo "El área del trapecio es ".trapecio($b1, $b2, $altura);
-	
-	
-		
-	
 	
 	include("footer.inc");
 ?>
