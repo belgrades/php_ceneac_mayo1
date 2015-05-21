@@ -30,9 +30,6 @@
 		//ejemplo con tablas asociativas
 		
 		//almacenamiento de visitas por día
-		$visitas[0] = 456;
-		$visitas[1] = 120;
-		$visitas[2] = 360;
 		
 		//Usamos tablas asociativas / tablas hash
 		
@@ -40,7 +37,7 @@
 		$visitas["martes"] = 326;
 		$visitas["miercoles"] = 1233;
 		
-		echo $visitas[0]." ".$visitas["miercoles"]; 
+		echo $visitas["miercoles"]; 
 		
 		?>
         
@@ -112,7 +109,7 @@
     <h3> Usando each para imprimir los valores </h3>
     
     <?php
-	
+		
 		$visitas["lunes"] = 1990;
 		$visitas["martes"] = 326;
 		$visitas["miercoles"] = 1233;
@@ -123,8 +120,37 @@
 		
 		reset($visitas);
 		while(list($clave, $valor) = each($visitas)){
-			echo "El día ".$clave." ingresaron ".$valor." personas <br>";	
+			echo "El día ".$clave." ingresaron ".$valor." 		personas <br>";	
 		}
+	
+	?>
+    <h3> Imprimiendo todos los valores sin claves con current y reset </h3>
+    
+	<?php
+		//imprimiendo los primeros 5
+		reset($visitas);
+		for($i=0; $i<5; $i++){
+			echo current($visitas)." ";
+			next($visitas);
+		}
+	?>
+    
+    <h3> Manejo de arreglos multidimensionales </h3>
+    
+    <?php
+		$calendario[] = array(1, "enero", 31);
+		$calendario[] = array(2, "febrero", 28);
+		$calendario[] = array(3, "marzo", 31);
+		$calendario[] = array(4, "abril", 30);
+		$calendario[] = array(5, "mayo", 31);
+		
+		while(list($clave, $valor) = each($calendario)){
+			$cadena = $valor[1];
+			$cadena .= " es el número ".$valor[0];
+			$cadena .= " y tiene ".$valor[2]." días<br>";
+			echo $cadena; 	
+		}
+		
 	?>
 </body>
 </html>
