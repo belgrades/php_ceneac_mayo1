@@ -37,12 +37,38 @@
 	$hora_ini = "10:05:20";
 	$hora_fin = "04:05:20";
 	
-	echo "La diferencia es ".restarHoras($hora_ini, $hora_fin);
+	echo "La diferencia es ".restarHoras($hora_ini, $hora_fin)."<br>";
+	
+	$hora_ini = "10:05:20:am";
+	$hora_fin = "04:05:20:am";
 	
 	function restarNoMilitar($ini, $fin){
+		#asumimos formato h:i:s:a
 		
+		list($horai, $mini, $segi, $tipoi) = preg_split("/[: -]/", $ini);
+		
+		list($horaf, $minf, $segf, $tipof) = preg_split("/[: -]/", $fin);
+		
+		#Comparando sin militar
+		
+		if(strcmp($tipoi, "pm")==0)
+			$horai+=12;
+		
+		if(strcmp($tipof, "pm")==0){
+			$horaf+=12;
+		}else{
+			$horaf+=24;	
+		}
+			echo $horaf;	
+		$segundos = 3600*($horaf-$horai)+60*($minf-$mini)+($segf-$segi);
+		
+		echo " ".$segundos;
+		
+		return(date("H:i:s",mktime(0,0,$segundos))); 
 	
 	}
+	
+	echo "La diferencia es ".restarNoMilitar($hora_ini, $hora_fin)."<br>" ;
 ?>
 
 </body>
