@@ -121,6 +121,15 @@
 	echo strcmp(trim($cadena), "Fernando UCV")." <br>";
  ?>
  
+ <h2> split </h2>
+ 
+ <?php
+// Los delimitadores pueden ser barra, punto o guión
+	$fecha = "04:30:1973";
+	list($mes, $dia, $anio) = preg_split('/[: -]/', $fecha);
+	echo "Mes: $mes; Día: $dia; Año: $anio <br>";
+?>
+ 
 <body>
 </body>
 </html>
