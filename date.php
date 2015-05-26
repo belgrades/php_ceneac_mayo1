@@ -71,5 +71,31 @@
 	echo "La diferencia es ".restarNoMilitar($hora_ini, $hora_fin)."<br>" ;
 ?>
 
+<h2> Zonas Horarias </h2>
+	<?php
+		date_default_timezone_set("America/Caracas");
+		
+		#creamos un timestamp a partir de los datos 12 45 10 01 20 1981 
+		$cumple = mktime(12, 45, 10, 01, 20, 1981);
+		
+		#cambia el idioma predeterminado
+		setLocale(LC_TIME, "esp");
+		
+		#Podemos imprimir usando los formatos de la tabla de la página 36
+		
+		$fecha = strftime("Naciste el dia %A, %d de %B de %Y a las %I:%M:%S <br>", $cumple);
+		
+		echo $fecha;
+		
+		if(checkdate(2, 29, 2100)){
+			echo "Fecha correcta";	
+		}else{
+			echo "Fecha incorrecta";	
+		}
+			
+	?>
+    
+ <h2> Ejercicio Año Bisiesto </h2>
+ <p>Un año es bisiesto si es divisible entre 4, a menos que sea divisible entre 100. Sin embargo, si un año es divisible entre 100 y además es divisible entre 400, también resulta bisiesto. Obviamente, esto elimina los años finiseculares (últimos de cada siglo, que ha de terminar en 00) cuyo siglo no es múltiplo de 4. </p>   
 </body>
 </html>
