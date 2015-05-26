@@ -96,6 +96,50 @@
 	?>
     
  <h2> Ejercicio Año Bisiesto </h2>
- <p>Un año es bisiesto si es divisible entre 4, a menos que sea divisible entre 100. Sin embargo, si un año es divisible entre 100 y además es divisible entre 400, también resulta bisiesto. Obviamente, esto elimina los años finiseculares (últimos de cada siglo, que ha de terminar en 00) cuyo siglo no es múltiplo de 4. </p>   
+ <p>Un año es bisiesto si es divisible entre 4, a menos que sea divisible entre 100. Sin embargo, si un año es divisible entre 100 y además es divisible entre 400, también resulta bisiesto. Obviamente, esto elimina los años finiseculares (últimos de cada siglo, que ha de terminar en 00) cuyo siglo no es múltiplo de 4. </p>
+ 
+ <h2> Ejercicio #1 </h2>
+ 
+ <?php
+ 	function validar($email){
+		
+		//Validación #1
+		$pos_arroba = strpos($email, "@");
+		
+		//verificamos si existe @
+		if(!$pos_arroba)
+			return FALSE;
+		
+		if($pos_arroba<3 || $pos_arroba >6){
+			return FALSE;
+		
+	}else{
+		//numero valido para login
+		$pos_punto = strpos($email, ".");
+		
+		//verificamos si existe el punto
+		if(!$pos_punto)
+			return FALSE;
+		
+		$diferencia = $pos_punto - $pos_arroba-1;
+		
+		//Aqui esta mal
+		if($diferencia<1 || $diferencia>10)
+		return FALSE;
+		
+	
+	 $final = strrchr($email, ".com");
+	 if(strcmp($final, ".com")==0)
+	 	return TRUE;
+		
+	 return FALSE;
+	
+		 	
+	}
+			
+		
+			
+	}
+ ?>   
 </body>
 </html>
