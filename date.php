@@ -136,10 +136,16 @@
 	
 		 	
 	}
-			
+	
+	}		
+		$email_1 = "fca@hotmaila.comm";
 		
-			
-	}
+		if(validar($email_1)==TRUE){
+			echo "Email válido";
+		}else{
+			echo "Email inválido";
+		}
+	
  ?>   
 </body>
 </html>
