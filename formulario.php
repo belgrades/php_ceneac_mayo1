@@ -48,6 +48,50 @@ Hombre
 <input type = "radio" value = "M" name = "genero">
 Mujer
 <input type = "radio" value = "F" checked = "checked" name = "genero" >
+<p> Fecha de nacimiento 
+	<select name = "dia"> 
+    	<?php
+			for($i=1;$i<=31;$i++){
+				echo "<option value ='$i'>$i</option>";	
+			}
+		?>
+    </select>
+	
+    <select name = "mes"> 
+    	<?php
+				$mes = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+				
+				for($i=0;$i<count($mes);$i++){
+					$variable = strtolower($mes[$i]);
+				echo "<option value ='$variable'>$mes[$i]</option>";	
+			}
+		?>
+    
+    </select>
+
+	<select name = "anio"> 
+        <?php
+			for($i=2015;$i>=1900;$i--){
+				echo "<option value ='$i'>$i</option>";	
+			}
+		?>
+    </select>
+</p>
+<p> Estado 
+<?php
+	$ciudades = array("Zulia","Miranda","Distrito Capital","Carabobo","Lara","Aragua","Bolívar","Anzoátegui","Táchira","Sucre","Falcón","Portuguesa","Monagas","Mérida","Barinas","Guárico","Trujillo","Yaracuy","Apure","Nueva Esparta","Vargas","Cojedes","Delta Amacuro","Amazonas");
+	sort($ciudades);
+?>
+	<select name="estados">
+    	<?php
+		
+			for($i=0;$i<count($ciudades);$i++){
+				echo "<option value ='$ciudades[$i]'>$ciudades[$i]</option>";	
+			}
+		?>
+    </select>
+</p>	
+
             <p> Dirección:</p> 
            	<p>			  <textarea 
             				name = "direccion"
