@@ -8,8 +8,8 @@
     <h2> Mi Formulario </h2>
     <h3> Por favor ingrese sus datos </h3>
 		
-    	<form action = "procesar.php" 
-        	  method = "get">
+    	<form action = "procesar_formulario.php" 
+        	  method = "post">
         	 Nombre:   <input 
             				placeholder = "Ingrese su nombre" 		                            type = "text" 
                             name = "nombre"
