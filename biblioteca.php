@@ -31,9 +31,22 @@
 	$res = mysql_query($query, $link);
 	
 	#Obtenemos los resultados
-	$nombre = mysql_result($res, 0, "nombre");
+	for($i = 0;$i < mysql_num_rows($res);$i++){
+		echo mysql_result($res, $i, "nombre")."<br>";	
+	}
 	
-	echo $nombre;
+	#Agregamos un valor a Libro
+	$query2 = "INSERT INTO `libros`(`nombre`, `editorial`, `autor`, `codigo`) VALUES ('El Perfume','Global','Patrick Suskind',6)";
+	
+	#Ejecutamos el INSERT
+	$res2 = mysql_query($query2, $link);
+	
+	#Cómo verificar inserciones repetidas
+	if(!strcmp(mysql_error(),"")==0){
+		echo "Fatal Error: ".mysql_error()."<br>";	
+	}
+		
+	
 	
 	
 ?>
