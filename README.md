@@ -22,3 +22,19 @@ Para "ahorrar" escritura de códigos.
 
 ### Ejemplos dentro de incluir.php
 Funciones de cálculo de áreas.
+
+## Nuevo: Ejemplo de MySQL con Login y uso de la BD de prestamo
+
+### Archivos Usados
+
+- login.php
+- lobby.php
+- reservar.php
+
+### Tablas de la BD
+
+- usuario
+- prestamo
+- libros (nombre, autor, editorial, codigo)
+  * Clave primaria: codigo
+
