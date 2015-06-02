@@ -33,8 +33,10 @@ Funciones de cálculo de áreas.
 
 ### Tablas de la BD
 
-- usuario
-- prestamo
+- usuario (nombre, apellido, cedula, direccion, email, clave, genero, fecha_nacimiento, estado)
+ * Clave primaria: cedula
+- prestamo (cedula, codigo, fecha_pedido, fecha_entrega)
+ * Claves foráneas: cedula, codigo
 - libros (nombre, autor, editorial, codigo)
   * Clave primaria: codigo
 
