@@ -11,48 +11,49 @@
           method = "post">
           
 	<?php
-		#Nos conectamos al servidor
+	
+	#Nos conectamos al servidor
 	$link = mysql_connect('localhost', 'php', 'php');
-	#	$link = mysql_connect('127.0.0.1', 'php', 'php');
+	
 	if(!$link){
 		die('No se pudo conectar al servidor '.mysql_error());	
-	}else{
-		#echo 'Conexión exitosa <br>';	
 	}
-	
+	#Conectando a la Base de Datos
 	$db_sel = mysql_select_db('php_formulario', $link);
 	
 	if(!$db_sel){
 		die('No se pudo seleccionar la BD<br>'.mysql_error());	
-	}else{
-		#echo 'Base de datos conectada<br> ';	
 	}
-	/**
-	$query = "SELECT clave FROM usuario WHERE cedula=$_POST['".$_POST["cedula"]."']";
 	
-	*/
-	
+	#Obtenemos los valores de login.php 
 	$cedula = $_POST["cedula"];
+	$clave = $_POST["clave"];
 	
 	#Query en SQL para obtener datos
-	$query = "SELECT clave FROM usuario WHERE cedula=$cedula";
+	$query = "SELECT clave 
+			  FROM usuario 
+			  WHERE cedula=$cedula";
 	
 	#Ejecutamos el query
 	$res = mysql_query($query, $link);
 	
-	#obtenemos la clave
-	if(strcmp(mysql_result($res, 0, "clave"),$_POST["clave"])==0){
+	#Comparamos la clave de la base de datos con la de login.php
+	if(strcmp(mysql_result($res, 0, "clave"), $clave)==0){
 		
 		#Query en SQL para obtener datos
-		$query = "SELECT * FROM libros";
+		$query = "SELECT * 
+				  FROM libros";
 		
 		#Ejecutamos el query
 		$res = mysql_query($query, $link);
 		
 		#Obtenemos los resultados
 		for($i = 0;$i < mysql_num_rows($res);$i++){
-		  $name = mysql_result($res, $i, "nombre");
-		  $id =   mysql_result($res, $i, "codigo");	
+		  	#almacenamos los valores de la consulta
+			$name = mysql_result($res, $i, "nombre");
+		  	$id =   mysql_result($res, $i, "codigo");
+			
+			#Agregamos radio boton uno a uno	
 			echo "<input type = 'radio' value = ".$id." name = 'listado'>".$name."<br>"; 	
 		}
 	}else{
